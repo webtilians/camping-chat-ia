@@ -1,0 +1,34 @@
+# Node.js
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+pnpm-debug.log*
+dist/
+build/
+.env
+.env.*
+.cache/
+*.local
+
+# Logs
+logs/
+*.log
+*.log.*
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDEs y editores comunes
+.vscode/
+.idea/
+*.swp
+
+# Test outputs
+jest-test-results.json
+
+# Misc
+*.tgz
+*.bak
+*.tmp
+*.temp

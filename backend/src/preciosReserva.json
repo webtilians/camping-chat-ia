@@ -1,0 +1,165 @@
+{
+    "temporadas": [
+      {
+        "nombre": "Temporada Baja",
+        "fecha_inicio": "2025-01-01",
+        "fecha_fin": "2025-03-31",
+        "precios": [
+          {
+            "tipo_parcela": "Parcela Estándar",
+            "clientes": [
+              { "tipo_cliente": "Adulto", "precio_noche": 15 },
+              { "tipo_cliente": "Niño", "precio_noche": 8 },
+              { "tipo_cliente": "Senior", "precio_noche": 12 },
+              { "tipo_cliente": "Persona con discapacidad", "precio_noche": 10 },
+              { "tipo_cliente": "Mascota", "precio_noche": 4 },
+              { "tipo_cliente": "Grupo", "precio_noche": 50 }
+            ]
+          },
+          {
+            "tipo_parcela": "Parcela Premium",
+            "clientes": [
+              { "tipo_cliente": "Adulto", "precio_noche": 22 },
+              { "tipo_cliente": "Niño", "precio_noche": 12 },
+              { "tipo_cliente": "Senior", "precio_noche": 18 },
+              { "tipo_cliente": "Persona con discapacidad", "precio_noche": 15 },
+              { "tipo_cliente": "Mascota", "precio_noche": 6 },
+              { "tipo_cliente": "Grupo", "precio_noche": 80 }
+            ]
+          },
+          {
+            "tipo_parcela": "Bungalow",
+            "clientes": [
+              { "tipo_cliente": "Adulto", "precio_noche": 35 },
+              { "tipo_cliente": "Niño", "precio_noche": 18 },
+              { "tipo_cliente": "Senior", "precio_noche": 28 },
+              { "tipo_cliente": "Persona con discapacidad", "precio_noche": 22 },
+              { "tipo_cliente": "Mascota", "precio_noche": 7 },
+              { "tipo_cliente": "Grupo", "precio_noche": 120 }
+            ]
+          },
+          {
+            "tipo_parcela": "Glamping",
+            "clientes": [
+              { "tipo_cliente": "Adulto", "precio_noche": 45 },
+              { "tipo_cliente": "Niño", "precio_noche": 22 },
+              { "tipo_cliente": "Senior", "precio_noche": 35 },
+              { "tipo_cliente": "Persona con discapacidad", "precio_noche": 28 },
+              { "tipo_cliente": "Mascota", "precio_noche": 10 },
+              { "tipo_cliente": "Grupo", "precio_noche": 150 }
+            ]
+          }
+        ]
+      },
+      {
+        "nombre": "Temporada Media",
+        "fecha_inicio": "2025-04-01",
+        "fecha_fin": "2025-06-15",
+        "precios": [
+          {
+            "tipo_parcela": "Parcela Estándar",
+            "clientes": [
+              { "tipo_cliente": "Adulto", "precio_noche": 18 },
+              { "tipo_cliente": "Niño", "precio_noche": 10 },
+              { "tipo_cliente": "Senior", "precio_noche": 15 },
+              { "tipo_cliente": "Persona con discapacidad", "precio_noche": 12 },
+              { "tipo_cliente": "Mascota", "precio_noche": 5 },
+              { "tipo_cliente": "Grupo", "precio_noche": 60 }
+            ]
+          },
+          {
+            "tipo_parcela": "Parcela Premium",
+            "clientes": [
+              { "tipo_cliente": "Adulto", "precio_noche": 28 },
+              { "tipo_cliente": "Niño", "precio_noche": 15 },
+              { "tipo_cliente": "Senior", "precio_noche": 22 },
+              { "tipo_cliente": "Persona con discapacidad", "precio_noche": 18 },
+              { "tipo_cliente": "Mascota", "precio_noche": 8 },
+              { "tipo_cliente": "Grupo", "precio_noche": 100 }
+            ]
+          },
+          {
+            "tipo_parcela": "Bungalow",
+            "clientes": [
+              { "tipo_cliente": "Adulto", "precio_noche": 50 },
+              { "tipo_cliente": "Niño", "precio_noche": 25 },
+              { "tipo_cliente": "Senior", "precio_noche": 40 },
+              { "tipo_cliente": "Persona con discapacidad", "precio_noche": 32 },
+              { "tipo_cliente": "Mascota", "precio_noche": 12 },
+              { "tipo_cliente": "Grupo", "precio_noche": 160 }
+            ]
+          },
+          {
+            "tipo_parcela": "Glamping",
+            "clientes": [
+              { "tipo_cliente": "Adulto", "precio_noche": 62 },
+              { "tipo_cliente": "Niño", "precio_noche": 32 },
+              { "tipo_cliente": "Senior", "precio_noche": 50 },
+              { "tipo_cliente": "Persona con discapacidad", "precio_noche": 42 },
+              { "tipo_cliente": "Mascota", "precio_noche": 15 },
+              { "tipo_cliente": "Grupo", "precio_noche": 190 }
+            ]
+          }
+        ]
+      },
+      {
+        "nombre": "Temporada Alta",
+        "fecha_inicio": "2025-06-16",
+        "fecha_fin": "2025-09-15",
+        "precios": [
+          {
+            "tipo_parcela": "Parcela Estándar",
+            "clientes": [
+              { "tipo_cliente": "Adulto", "precio_noche": 28 },
+              { "tipo_cliente": "Niño", "precio_noche": 16 },
+              { "tipo_cliente": "Senior", "precio_noche": 22 },
+              { "tipo_cliente": "Persona con discapacidad", "precio_noche": 18 },
+              { "tipo_cliente": "Mascota", "precio_noche": 8 },
+              { "tipo_cliente": "Grupo", "precio_noche": 80 }
+            ]
+          },
+          {
+            "tipo_parcela": "Parcela Premium",
+            "clientes": [
+              { "tipo_cliente": "Adulto", "precio_noche": 40 },
+              { "tipo_cliente": "Niño", "precio_noche": 22 },
+              { "tipo_cliente": "Senior", "precio_noche": 32 },
+              { "tipo_cliente": "Persona con discapacidad", "precio_noche": 28 },
+              { "tipo_cliente": "Mascota", "precio_noche": 14 },
+              { "tipo_cliente": "Grupo", "precio_noche": 140 }
+            ]
+          },
+          {
+            "tipo_parcela": "Bungalow",
+            "clientes": [
+              { "tipo_cliente": "Adulto", "precio_noche": 75 },
+              { "tipo_cliente": "Niño", "precio_noche": 38 },
+              { "tipo_cliente": "Senior", "precio_noche": 60 },
+              { "tipo_cliente": "Persona con discapacidad", "precio_noche": 48 },
+              { "tipo_cliente": "Mascota", "precio_noche": 18 },
+              { "tipo_cliente": "Grupo", "precio_noche": 220 }
+            ]
+          },
+          {
+            "tipo_parcela": "Glamping",
+            "clientes": [
+              { "tipo_cliente": "Adulto", "precio_noche": 90 },
+              { "tipo_cliente": "Niño", "precio_noche": 46 },
+              { "tipo_cliente": "Senior", "precio_noche": 70 },
+              { "tipo_cliente": "Persona con discapacidad", "precio_noche": 60 },
+              { "tipo_cliente": "Mascota", "precio_noche": 22 },
+              { "tipo_cliente": "Grupo", "precio_noche": 260 }
+            ]
+          }
+        ]
+      }
+    ],
+    "extras": [
+      { "nombre": "Electricidad", "precio_noche": 6 },
+      { "nombre": "Coche", "precio_noche": 8 },
+      { "nombre": "Tienda adicional", "precio_noche": 5 },
+      { "nombre": "Mascota adicional", "precio_noche": 4 },
+      { "nombre": "Aire acondicionado", "precio_noche": 10 }
+    ]
+  }
+  

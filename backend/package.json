@@ -1,18 +1,27 @@
 {
   "name": "backend",
   "version": "1.0.0",
-  "description": "��#\u0000 \u0000B\u0000a\u0000c\u0000k\u0000e\u0000n\u0000d\u0000\r\u0000 \u0000",
+  "description": "",
   "main": "index.js",
+  "type": "module",
   "scripts": {
-    "start": "node src/index.js"
+    "start": "node src/index.js",
+    "dev": "nodemon src/index.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@langchain/core": "^0.3.57",
+    "@langchain/langgraph": "^0.3.0",
+    "@langchain/openai": "^0.5.11",
     "cors": "^2.8.5",
     "dotenv": "^16.5.0",
     "express": "^5.1.0",
+    "langchain": "^0.3.27",
     "openai": "^5.0.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.10"
   }
 }

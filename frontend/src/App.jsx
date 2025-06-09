@@ -2,7 +2,6 @@ import { useState, useRef, useEffect } from "react";
 
 const API_URL = "http://localhost:5000/api/chat"; // Cambia si usas otro puerto/backend
 
-// Paleta de colores
 const COLORS = {
   background: "#f4f6fb",
   border: "#dee3ea",
@@ -12,8 +11,9 @@ const COLORS = {
 };
 
 function App() {
+  // Usamos formato OpenAI desde el principio
   const [messages, setMessages] = useState([
-    { user: "ia", text: "¡Hola! ¿En qué puedo ayudarte para tu camping? 🌲" }
+    { role: "system", content: "Eres un agente útil y simpático de camping." }
   ]);
   const [input, setInput] = useState("");
   const [loading, setLoading] = useState(false);
@@ -23,23 +23,13 @@ function App() {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [messages]);
 
-  // Convierte los mensajes de nuestro frontend al formato OpenAI API
-  const getOpenAIMessages = () => [
-    { role: "system", content: "Eres un agente útil y simpático de camping." },
-    ...messages
-      .filter(msg => msg.text && msg.text.trim() !== "")
-      .map(msg => ({
-        role: msg.user === "yo" ? "user" : "assistant",
-        content: msg.text,
-      })),
-  ];
-
-  // Envía el mensaje al backend y obtiene respuesta
+  // Enviamos todo el historial, el backend ya espera el formato correcto
   const sendMessage = async (e) => {
     e.preventDefault();
     if (!input.trim() || loading) return;
 
-    const userMsg = { user: "yo", text: input };
+    const userMsg = { role: "user", content: input };
+    // Añadimos el mensaje del usuario al historial
     setMessages(msgs => [...msgs, userMsg]);
     setInput("");
     setLoading(true);
@@ -48,14 +38,51 @@ function App() {
       const res = await fetch(API_URL, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ messages: getOpenAIMessages().concat({ role: "user", content: input }) }),
+        // Enviamos todo el historial actualizado
+        body: JSON.stringify({ messages: [...messages, userMsg] }),
       });
       const data = await res.json();
-      setMessages(msgs => [...msgs, { user: "ia", text: data.reply }]);
+      setMessages(msgs => [...msgs, { role: "assistant", content: data.reply }]);
     } catch (err) {
-      setMessages(msgs => [...msgs, { user: "ia", text: "❌ Error conectando con el backend" }]);
+      setMessages(msgs => [...msgs, { role: "assistant", content: "❌ Error conectando con el backend" }]);
     }
     setLoading(false);
+  };
+
+  // Renderiza cada mensaje en base a su role
+  const renderMessage = (msg, idx) => {
+    let alignSelf = "flex-start";
+    let background = COLORS.iaMsg;
+    if (msg.role === "user") {
+      alignSelf = "flex-end";
+      background = COLORS.myMsg;
+    }
+    if (msg.role === "system") {
+      // Puedes ocultar los mensajes 'system' en la UI si prefieres
+      return null;
+    }
+    return (
+      <div
+        key={idx}
+        style={{
+          alignSelf,
+          background,
+          color: COLORS.text,
+          borderRadius: 16,
+          borderBottomRightRadius: msg.role === "user" ? 4 : 16,
+          borderBottomLeftRadius: msg.role === "assistant" ? 4 : 16,
+          padding: "14px 20px",
+          maxWidth: "45vw",
+          fontSize: 17,
+          boxShadow:
+            msg.role === "user"
+              ? "0 2px 6px rgba(0,110,200,0.04)"
+              : "0 2px 6px rgba(60,60,130,0.06)",
+        }}
+      >
+        {msg.content}
+      </div>
+    );
   };
 
   return (
@@ -93,34 +120,30 @@ function App() {
           style={{
             flex: 1,
             overflowY: "auto",
-            padding: "36px 22vw 24px 22vw", // Centramos mensajes y damos aire a los lados
+            padding: "36px 22vw 24px 22vw",
             display: "flex",
             flexDirection: "column",
             gap: 18,
           }}
         >
-          {messages.map((msg, idx) => (
-            <div
-              key={idx}
-              style={{
-                alignSelf: msg.user === "yo" ? "flex-end" : "flex-start",
-                background: msg.user === "yo" ? COLORS.myMsg : COLORS.iaMsg,
-                color: COLORS.text,
-                borderRadius: 16,
-                borderBottomRightRadius: msg.user === "yo" ? 4 : 16,
-                borderBottomLeftRadius: msg.user === "ia" ? 4 : 16,
-                padding: "14px 20px",
-                maxWidth: "45vw", // Se adaptan a ancho de pantalla
-                fontSize: 17,
-                boxShadow:
-                  msg.user === "yo"
-                    ? "0 2px 6px rgba(0,110,200,0.04)"
-                    : "0 2px 6px rgba(60,60,130,0.06)",
-              }}
-            >
-              {msg.text}
-            </div>
-          ))}
+          {/* Mensaje de bienvenida solo visual, ya está como system */}
+          <div
+            style={{
+              alignSelf: "flex-start",
+              background: COLORS.iaMsg,
+              color: COLORS.text,
+              borderRadius: 16,
+              borderBottomLeftRadius: 4,
+              padding: "14px 20px",
+              maxWidth: "45vw",
+              fontSize: 17,
+              boxShadow: "0 2px 6px rgba(60,60,130,0.06)",
+              marginBottom: 8,
+            }}
+          >
+            ¡Hola! ¿En qué puedo ayudarte para tu camping? 🌲
+          </div>
+          {messages.map(renderMessage)}
           <div ref={messagesEndRef} />
           {loading && (
             <div
@@ -189,7 +212,6 @@ function App() {
       </div>
     </div>
   );
-  
 }
 
 export default App;

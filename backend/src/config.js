@@ -1,6 +1,6 @@
-require('dotenv').config();
+// config.js
+import dotenv from "dotenv";
+dotenv.config();
 
-module.exports = {
-  OPENAI_API_KEY: process.env.OPENAI_API_KEY,
-  PORT: process.env.PORT || 5000,
-};
+export const PORT = process.env.PORT || 5000;
+export const OPENAI_API_KEY = process.env.OPENAI_API_KEY;

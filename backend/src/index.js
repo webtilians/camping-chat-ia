@@ -1,13 +1,14 @@
-const express = require("express");
-const cors = require("cors");
-const { PORT } = require("./config");
-const { chatWithAgent } = require("./agent");
+import express from "express";
+import cors from "cors";
+import { PORT } from "./config.js";
+import { chatWithAgent } from "./agentService.js";
 
 const app = express();
 app.use(cors());
 app.use(express.json());
 
 app.post("/api/chat", async (req, res) => {
+  console.log("peticion recibida del front")
   try {
     const { messages } = req.body;
     if (!messages || !Array.isArray(messages)) {

@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from "react";
 
-const API_URL = "http://localhost:5000/api/chat"; // Cambia si usas otro puerto/backend
+const API_URL = "http://localhost:5001/api/chat"; // Cambia si usas otro puerto/backend
 
 const COLORS = {
   background: "#f4f6fb",

@@ -4,9 +4,16 @@ import { ChatOpenAI } from "@langchain/openai";
 // Importa las tools desde la carpeta tools
 import sumTool from "./tools/sumTool.js";
 import verPreciosReservaTool from "./tools/verPreciosReservaTool.js";
+import listaPreciosHTMLTool from "./tools/listaPreciosHTMLTool.js";
+import gestionarReservasTool from "./tools/gestionarReservasTool.js";
 // (Aquí puedes importar más tools en el futuro)
 
-const tools = [sumTool, verPreciosReservaTool];
+const tools = [
+  sumTool,
+  verPreciosReservaTool,
+  listaPreciosHTMLTool,
+  gestionarReservasTool,
+];
 
 const llm = new ChatOpenAI({
   apiKey: process.env.OPENAI_API_KEY,
